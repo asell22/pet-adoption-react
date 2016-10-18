@@ -4,7 +4,8 @@
   "description": "Simple frontend project using React.js and Petfinder API",
   "main": "index.js",
   "scripts": {
-    "production": "webpack -p"
+    "production": "webpack -p",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
