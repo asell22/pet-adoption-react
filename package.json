@@ -1,0 +1,28 @@
+{
+  "name": "pet-app",
+  "version": "1.0.0",
+  "description": "Simple frontend project using React.js and Petfinder API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asell22/pet-adoption-react.git"
+  },
+  "keywords": [
+    "React.js",
+    "Petfinder",
+    "Pets"
+  ],
+  "author": "Alex Sell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asell22/pet-adoption-react/issues"
+  },
+  "homepage": "https://github.com/asell22/pet-adoption-react#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
