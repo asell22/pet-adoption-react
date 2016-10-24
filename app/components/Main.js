@@ -6,9 +6,15 @@ class Main extends Component {
     return  (
       <div>
         <Nav />
-        MAIN COMPONENT
-        {this.props.children}
+        <div className="container">
+          <h1 style={{fontFamily: 'Lato, sans-serif'}}>
+            Let Us Help You Find a Pet
+          </h1>
+
+          {this.props.children}
+        </div>
       </div>
+
     )
   }
 }
