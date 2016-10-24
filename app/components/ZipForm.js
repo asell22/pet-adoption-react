@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { body, zipForm } from '../styles/zipForm';
+import { zipForm, button } from '../styles/zipForm';
+import Header from './Header';
 
 class ZipForm extends Component {
   render() {
     return (
-      <form className="form-inline" style={zipForm}>
-        <h2>Enter Zip Code</h2>
-        <div className="form-group">
-          <label for="zipCodeInput" className="sr-only">Enter Zip Code</label>
-          <input type="text" className="form-control" placeholder="Zip Code" required/>
-        </div>
-        <button className="btn btn-primary" type="submit">Find Pets</button>
-      </form>
+      <div>
+        <Header text="Let Us Help You Find A Pet"/>
+        <form className="form-inline" style={zipForm}>
+          <h2 style={{fontFamily: 'sans-serif', fontWeight: '100'}}>Enter Your Zip Code</h2>
+          <div className="form-group">
+            <label htmlFor="zipCodeInput" className="sr-only">Enter Zip Code</label>
+            <input type="text" className="form-control" placeholder="Zip Code" required/>
+          </div>
+          <button className="btn btn-primary" type="submit" style={button}>Find Pets</button>
+        </form>
+      </div>
     )
   }
 }
