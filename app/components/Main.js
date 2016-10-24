@@ -7,7 +7,7 @@ class Main extends Component {
       <div>
         <Nav />
         <div className="container">
-          <h1 style={{fontFamily: 'Lato, sans-serif'}}>
+          <h1 style={{fontFamily: 'Lato, sans-serif', textAlign: 'center'}}>
             Let Us Help You Find a Pet
           </h1>
 
