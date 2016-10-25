@@ -3,24 +3,27 @@ import Header from './Header';
 
 
 class PetForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       size: 'small',
       age: 'baby',
-      gender: 'female'
+      gender: 'female',
+      zip: props.location.state.zip
     }
   }
   handleChange(evt) {
     console.log('Value:', evt.target.value);
   }
+  handleSubmit(evt) {
+    evt.preventDefault();
+    console.log('STATE:', this.state);
+  }
   render() {
-
-    console.log('Zip:', this.props.location.state.zip);
     return (
       <div>
         <Header text="Fill Out The Information Below" />
-        <form className="form-horizontal" style={{marginTop: '80px'}}>
+        <form className="form-horizontal" style={{marginTop: '80px'}} onSubmit={(evt) => this.handleSubmit(evt) }>
           <div className="form-group">
             <label htmlFor="animal" className="col-sm-2 col-sm-offset-1 control-label">Type of Animal</label>
             <div className="col-sm-2">
