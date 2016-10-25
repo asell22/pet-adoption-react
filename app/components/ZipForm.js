@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from './Header';
 import { zipForm, button } from '../styles/zipForm';
+import { Link } from 'react-router';
 
-const ZipForm = ({ onFormSubmit, onInputChange }) => {
+const ZipForm = ({ onFormSubmit, onInputChange, zip }) => {
   return (
     <div>
       <Header text="Let Us Help You Find A Pet"/>
@@ -10,9 +11,11 @@ const ZipForm = ({ onFormSubmit, onInputChange }) => {
         <h2 style={{fontFamily: 'sans-serif', fontWeight: '100'}}>Enter Your Zip Code</h2>
         <div className="form-group">
           <label htmlFor="zipCodeInput" className="sr-only">Enter Zip Code</label>
-          <input type="text" className="form-control" placeholder="Zip Code" onChange={onInputChange} required/>
+          <input type="text" className="form-control" placeholder="Zip Code" onChange={onInputChange} value={zip} required/>
         </div>
-        <button className="btn btn-primary" type="submit" style={button}  >Find Pets</button>
+
+          <button className="btn btn-primary" type="submit" style={button}  >Find Pets</button>
+
       </form>
     </div>
   )
