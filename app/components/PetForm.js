@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import Header from './Header';
 
+
 class PetForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      size: 'small',
+      age: 'baby',
+      gender: 'female'
+    }
+  }
+  handleChange(evt) {
+    console.log('Value:', evt.target.value);
+  }
   render() {
-    console.log(this.props.location.state.zip);
+
+    console.log('Zip:', this.props.location.state.zip);
     return (
       <div>
         <Header text="Fill Out The Information Below" />
@@ -14,36 +27,22 @@ class PetForm extends Component {
               <input type="text" className="form-control" placeholder="Animal" required/>
             </div>
             <label htmlFor="inputPassword3" className="col-sm-1 col-sm-offset-1 control-label">Size</label>
-            <div className="col-sm-1">
-              <div className="dropdown">
-                <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Size
-                  <span className="caret" style={{marginLeft: '29px'}}></span>
-                </button>
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
-            </div>
-            <label htmlFor="inputPassword3" className="col-sm-2 control-label">Age</label>
             <div className="col-sm-2">
-              <div className="dropdown">
-                <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Age
-                  <span className="caret" style={{marginLeft: '29px'}}></span>
-                </button>
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
+              <select className="form-control" onChange={(evt) => this.handleChange(evt)}>
+                <option value="small">small</option>
+                <option value="medium">medium</option>
+                <option value="large">large</option>
+                <option value="extra-large">extra-large</option>
+              </select>
+            </div>
+            <label htmlFor="inputPassword3" className="col-sm-1 control-label">Age</label>
+            <div className="col-sm-2">
+              <select className="form-control" onChange={(evt) => this.handleChange(evt)}>
+                <option value="baby">Baby</option>
+                <option value="young">Young</option>
+                <option value="adult">Adult</option>
+                <option value="senior">Senior</option>
+              </select>
             </div>
           </div>
           <div className="form-group" style={{marginBottom: '30px'}}>
@@ -53,19 +52,10 @@ class PetForm extends Component {
             </div>
             <label htmlFor="inputPassword3" className="col-sm-1 col-sm-offset-1 control-label">Gender</label>
             <div className="col-sm-2">
-              <div className="dropdown">
-                <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Gender
-                  <span className="caret" style={{marginLeft: '10px'}}></span>
-                </button>
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
+              <select className="form-control" onChange={(evt) => this.handleChange(evt)}>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
             </div>
           </div>
           <div className="form-group">
