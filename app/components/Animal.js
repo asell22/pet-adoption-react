@@ -17,6 +17,13 @@ class AnimalContainer extends Component {
   }
   handleButtonClick() {
     console.log(this.state);
+    this.context.router.push({
+      pathname: 'breed',
+      state: {
+        zip: this.state.zip,
+        animal: this.state.animal
+      }
+    })
   }
   render() {
     return (
@@ -35,7 +42,7 @@ class AnimalContainer extends Component {
             <option value="smallfurry">Small And Furry</option>
           </select>
         </div>
-        <button className="btn btn-default center" style={btn} onClick={(evt) => this.handleButtonClick(evt)}>Select</button>
+        <button className="btn btn-default center" style={btn} onClick={() => this.handleButtonClick()}>Select</button>
       </div>
 
     )
