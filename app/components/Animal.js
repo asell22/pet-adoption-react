@@ -3,10 +3,11 @@ import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
 class AnimalContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      animal: ''
+      animal: '',
+      zip: this.props.location.state.zip
     }
   }
   handleAnimalChange(evt) {
