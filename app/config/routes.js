@@ -4,7 +4,7 @@ import Main from '../components/Main';
 import Home from '../components/Home'
 import ZipFormContainer from '../components/ZipFormContainer';
 import PetForm from '../components/PetForm';
-import AnimalContainer from '../components/Animal';
+import AnimalContainer from '../components/AnimalContainer';
 import Breed from '../components/Breed';
 
 const routes = (
