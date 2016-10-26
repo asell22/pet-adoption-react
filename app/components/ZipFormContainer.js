@@ -16,7 +16,7 @@ class ZipFormContainer extends Component {
   handleFormSubmit(evt) {
     evt.preventDefault();
     this.context.router.push({
-      pathname: '/form',
+      pathname: '/animal',
       state: { zip: this.state.zip }
     })
     this.setState({
