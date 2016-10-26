@@ -11,10 +11,14 @@ class Breed extends Component {
       zip: props.location.state.zip
     }
   }
+  componentDidMount() {
+    console.log('STATE:', this.state)
+    // Fetch breeds from PETFINDER API, then update state
+  }
   render() {
-    // console.log(this.props)
-    console.log(this.state)
-    return <div>BREED COMPONENT</div>
+    return this.state.isLoading === true
+      ? <p>LOADING</p>
+      : <p>BREED COMPONENT</p> 
   }
 }
 
