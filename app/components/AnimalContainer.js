@@ -15,7 +15,6 @@ class AnimalContainer extends Component {
     });
   }
   handleButtonClick() {
-    console.log(this.state);
     this.context.router.push({
       pathname: 'breed',
       state: {
