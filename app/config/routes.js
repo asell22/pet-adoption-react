@@ -5,7 +5,7 @@ import Home from '../components/Home'
 import ZipFormContainer from '../components/ZipFormContainer';
 import PetForm from '../components/PetForm';
 import AnimalContainer from '../components/AnimalContainer';
-import Breed from '../components/Breed';
+import BreedContainer from '../components/BreedContainer';
 
 const routes = (
   <Router history={hashHistory}>
@@ -14,7 +14,7 @@ const routes = (
       <Route path='form' component={PetForm}/>
       <Route path='zip' component={ZipFormContainer}/>
       <Route path='animal' component={AnimalContainer}/>
-      <Route path='breed' component={Breed}/>
+      <Route path='breed' component={BreedContainer}/>
     </Route>
   </Router>
 )
