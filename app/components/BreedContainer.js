@@ -4,19 +4,22 @@ import Breed from './Breed';
 
 class BreedContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isLoading: true,
       breeds: [],
       breed: '',
       animal: props.location.state.animal,
-      zip: props.location.state.zip
+      zip: props.location.state.zip,
+      value: 'Select A Breed'
     }
   }
   handleBreedChange(evt) {
     this.setState({
-      breed: evt.target.value
+      breed: evt.target.value,
+      value: evt.target.value
     });
+    console.log(evt.target.value)
   }
   handleButtonClick() {
     this.context.router.push({
@@ -29,7 +32,7 @@ class BreedContainer extends Component {
     })
   }
   componentDidMount() {
-    console.log('STATE:', this.state)
+    // console.log('STATE:', this.state)
     const url = `http://api.petfinder.com/breed.list?format=json&key=${API_KEY}&animal=${this.state.animal}`;
     $.ajax({
       type : 'GET',
@@ -53,6 +56,7 @@ class BreedContainer extends Component {
         breeds={this.state.breeds}
         onBreedChange={(evt) => this.handleBreedChange(evt)}
         onButtonClick={() => this.handleButtonClick()}
+        value={this.state.value}
       />
     )
   }
