@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { API_KEY } from '../../keys';
 import Breed from './Breed';
 
@@ -13,7 +13,7 @@ class BreedContainer extends Component {
       zip: props.location.state.zip
     }
   }
-  handleAnimalChange(evt) {
+  handleBreedChange(evt) {
     this.setState({
       breed: evt.target.value
     });
@@ -47,11 +47,19 @@ class BreedContainer extends Component {
     })
   }
   render() {
-    return (<Breed
-      isLoading={this.state.isLoading}
-      breeds={this.state.breeds}
-    />)
+    return (
+      <Breed
+        isLoading={this.state.isLoading}
+        breeds={this.state.breeds}
+        onBreedChange={(evt) => this.handleBreedChange(evt)}
+        onButtonClick={() => this.handleButtonClick()}
+      />
+    )
   }
+}
+
+BreedContainer.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default BreedContainer;
