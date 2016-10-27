@@ -13,6 +13,21 @@ class BreedContainer extends Component {
       zip: props.location.state.zip
     }
   }
+  handleAnimalChange(evt) {
+    this.setState({
+      breed: evt.target.value
+    });
+  }
+  handleButtonClick() {
+    this.context.router.push({
+      pathname: 'size',
+      state: {
+        zip: this.state.zip,
+        animal: this.state.animal,
+        breed: this.state.breed
+      }
+    })
+  }
   componentDidMount() {
     console.log('STATE:', this.state)
     const url = `http://api.petfinder.com/breed.list?format=json&key=${API_KEY}&animal=${this.state.animal}`;
