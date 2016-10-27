@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/asell22/pet-adoption-react#readme",
   "dependencies": {
+    "node-uuid": "^1.4.7",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { API_KEY } from '../../keys';
+import { v4 } from 'node-uuid';
 
 class Breed extends Component {
   constructor(props) {
@@ -36,7 +37,11 @@ class Breed extends Component {
   render() {
     return this.state.isLoading === true
       ? <p>LOADING</p>
-      : <p>BREED COMPONENT</p>
+      : <ul>
+          {this.state.breeds.map((breed) => {
+            return <li key={v4()}>{breed.$t}</li>
+          })}
+        </ul>
   }
 }
 
