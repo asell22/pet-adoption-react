@@ -19,7 +19,6 @@ class BreedContainer extends Component {
       breed: evt.target.value,
       value: evt.target.value
     });
-    console.log(evt.target.value)
   }
   handleButtonClick() {
     this.context.router.push({
@@ -32,7 +31,6 @@ class BreedContainer extends Component {
     })
   }
   componentDidMount() {
-    // console.log('STATE:', this.state)
     const url = `http://api.petfinder.com/breed.list?format=json&key=${API_KEY}&animal=${this.state.animal}`;
     $.ajax({
       type : 'GET',
@@ -40,13 +38,10 @@ class BreedContainer extends Component {
       url : url+'&callback=?',
       dataType: 'json'
     }).then((data) => {
-      console.log(data);
       this.setState({
         isLoading: false,
         breeds: data.petfinder.breeds.breed
       })
-    }).then(() => {
-      console.log(this.state);
     })
   }
   render() {

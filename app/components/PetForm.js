@@ -41,7 +41,6 @@ class PetForm extends Component {
   }
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log('STATE:', this.state);
   }
   render() {
     return (

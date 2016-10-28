@@ -6,7 +6,6 @@ import { zipForm, btn } from '../styles/zipForm';
 
 
 const Breed = ({ isLoading, breeds, onBreedChange, onButtonClick, value }) => {
-  // console.log('onBreedChange:', onBreedChange);
   return (
     isLoading === true
     ? <Header text="Loading..." />
@@ -31,7 +30,8 @@ Breed.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   breeds: PropTypes.array.isRequired,
   onBreedChange: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired
+  onButtonClick: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 }
 
 export default Breed;
