@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
@@ -18,6 +18,11 @@ const Size = function ({ onSizeChange, onButtonClick }) {
       <button className="btn btn-default center" style={btn} onClick={onButtonClick}>Select</button>
     </div>
   )
+}
+
+Size.propTypes = {
+  onSizeChange: PropTypes.func.isRequired,
+  onButtonClick: PropTypes.func.isRequired
 }
 
 export default Size;
