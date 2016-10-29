@@ -19,11 +19,16 @@ class SizeContainer extends Component {
   }
   handleButtonClick() {
     this.context.router.push({
-      pathname: 'age'
+      pathname: 'age',
+      state: {
+        animal: this.props.location.state.animal,
+        breed: this.props.location.state.breed,
+        zip: this.props.location.state.zip,
+        size: this.state.size
+      }
     })
   }
   render() {
-    // console.log(this.state)
     return (
       <div>
         <Header text="Select a size"/>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const AgeContainer = () => {
+const AgeContainer = (props) => {
+  console.log('PROPS', props)
   return <div>AGE CONTAINER</div>
 }
 
