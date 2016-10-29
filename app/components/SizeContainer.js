@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Header from './Header';
-import { zipForm, btn } from '../styles/zipForm';
+import Size from './Size';
 
 class SizeContainer extends Component {
   constructor(props) {
@@ -30,19 +29,10 @@ class SizeContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <Header text="Select a size"/>
-        <div className="center" style={zipForm}>
-          <select className="form-control" onChange={(evt) => this.handleSizeChange(evt)}>
-            <option value="" style={{display:'none'}}>Select Size </option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="extra-large">Extra Large</option>
-          </select>
-        </div>
-        <button className="btn btn-default center" style={btn} onClick={() => this.handleButtonClick()}>Select</button>
-      </div>
+      <Size
+        onSizeChange={(evt) => this.handleSizeChange(evt)}
+        onButtonClick={() => this.handleButtonClick()}
+      />
     )
   }
 }
