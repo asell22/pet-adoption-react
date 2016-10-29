@@ -4,12 +4,9 @@ import Size from './Size';
 class SizeContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      animal: this.props.location.state.animal,
-      breed: this.props.location.state.breed,
-      zip: this.props.location.state.zip,
-      size: ''
-    }
+    const state = props.location.state;
+    this.state = state;
+    this.state.size = '';
   }
   handleSizeChange(evt) {
     this.setState({
