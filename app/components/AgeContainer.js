@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import { zipForm, btn } from '../styles/zipForm';
 
 class AgeContainer extends Component {
   constructor(props) {
@@ -10,13 +12,22 @@ class AgeContainer extends Component {
 
   render() {
     console.log('STATE: ', this.state)
-    return <div>AGE CONTAINER</div>
+    return (
+      <div>
+        <Header text="How old would you like your pet to be?"/>
+        <div className="center" style={zipForm}>
+          <select className="form-control">
+            <option value="" style={{display:'none'}}>Select An Age</option>
+            <option value="Baby">Baby</option>
+            <option value="Young">Young</option>
+            <option value="Adult">Adult</option>
+            <option value="Senior">Senior</option>
+          </select>
+        </div>
+        <button className="btn btn-default center" style={btn}>Select</button>
+      </div>
+    )
   }
 }
-
-// const AgeContainer = (props) => {
-//   console.log('PROPS', props)
-//   return <div>AGE CONTAINER</div>
-// }
 
 export default AgeContainer;
