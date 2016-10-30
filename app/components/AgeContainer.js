@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import Header from './Header';
-import { zipForm, btn } from '../styles/zipForm';
+import Age from './Age';
+
 
 class AgeContainer extends Component {
   constructor(props) {
@@ -25,19 +25,10 @@ class AgeContainer extends Component {
 
   render() {
     return (
-      <div>
-        <Header text="How old would you like your pet to be?"/>
-        <div className="center" style={zipForm}>
-          <select className="form-control" onChange={(evt) => this.handleAgeChange(evt)}>
-            <option value="" style={{display:'none'}}>Select An Age</option>
-            <option value="Baby">Baby</option>
-            <option value="Young">Young</option>
-            <option value="Adult">Adult</option>
-            <option value="Senior">Senior</option>
-          </select>
-        </div>
-        <button className="btn btn-default center" style={btn} onClick={() => this.handleButtonClick()}>Select</button>
-      </div>
+      <Age
+        onAgeChange={(evt) => {this.handleAgeChange(evt)}}
+        onButtonClick={() => {this.handleButtonClick()}}
+      />
     )
   }
 }
