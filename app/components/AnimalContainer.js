@@ -6,7 +6,9 @@ class AnimalContainer extends Component {
     super(props);
     this.state = {
       animal: '',
-      zip: this.props.location.state.zip
+      zip: this.props.location.state.zip,
+      text: 'What kind of pet did you have in mind?',
+      color: 'black'
     }
   }
   handleAnimalChange(evt) {
@@ -15,19 +17,28 @@ class AnimalContainer extends Component {
     });
   }
   handleButtonClick() {
-    this.context.router.push({
-      pathname: 'breed',
-      state: {
-        zip: this.state.zip,
-        animal: this.state.animal
-      }
-    })
+    if (this.state.animal.length) {
+      this.context.router.push({
+        pathname: 'breed',
+        state: {
+          zip: this.state.zip,
+          animal: this.state.animal
+        }
+      })
+    } else {
+      this.setState({
+        text: ' Please select an animal type',
+        color: 'red'
+      })
+    }
   }
   render() {
     return (
       <Animal
         onAnimalChange={(evt) => this.handleAnimalChange(evt)}
         onButtonClick={() => this.handleButtonClick()}
+        headerText={this.state.text}
+        color={this.state.color}
         />
     )
   }

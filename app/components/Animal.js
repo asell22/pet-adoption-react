@@ -2,10 +2,11 @@ import React, { PropTypes } from 'react';
 import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
-const Animal = ({ onButtonClick, onAnimalChange }) => {
+const Animal = ({ onButtonClick, onAnimalChange, headerText, color }) => {
+  console.log('COLOR:', color)
   return (
     <div>
-      <Header text="What kind of pet did you have in mind?"/>
+      <Header text={headerText} color={color}/>
       <div className="center" style={zipForm}>
         <select className="form-control" onChange={onAnimalChange}>
           <option value="" style={{display:'none'}}>Select An Animal Type </option>
