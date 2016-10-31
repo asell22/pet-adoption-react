@@ -5,7 +5,9 @@ class ZipFormContainer extends Component {
   constructor() {
     super();
     this.state = {
-      zip: ''
+      zip: '',
+      color: 'black',
+      subheading: 'Enter Your Zip Code'
     }
   }
   handleInputChange(evt) {
@@ -15,17 +17,27 @@ class ZipFormContainer extends Component {
   }
   handleFormSubmit(evt) {
     evt.preventDefault();
-    this.context.router.push({
-      pathname: '/animal',
-      state: this.state
-    })
-    this.setState({
-      zip: ''
-    });
+    if (!isNaN(+this.state.zip) && this.state.zip.length === 5) {
+      this.context.router.push({
+        pathname: '/animal',
+        state: this.state
+      })
+      this.setState({
+        zip: ''
+      });
+    } else {
+      this.setState({
+        zip: '',
+        color: 'red',
+        subheading: 'Enter A Valid Zip Code'
+      });
+    }
   }
   render() {
     return (
       <ZipForm
+        color={this.state.color}
+        subheading={this.state.subheading}
         onInputChange={(evt) => this.handleInputChange(evt)}
         onFormSubmit={(evt) => this.handleFormSubmit(evt)}
         zip={this.state.zip}

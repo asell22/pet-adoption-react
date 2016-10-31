@@ -1,5 +1,5 @@
 export const zipForm = {
-  maxWidth: '330px',
+  maxWidth: '340px',
   padding: '15px',
   margin: '0 auto',
 }
