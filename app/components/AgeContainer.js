@@ -22,7 +22,13 @@ class AgeContainer extends Component {
     if (this.state.age.length) {
       this.context.router.push({
         pathname: 'gender',
-        state: this.state
+        state: {
+          age: this.state.age,
+          animal: this.state.animal,
+          breed: this.state.breed,
+          size: this.state.size,
+          zip: this.state.zip
+        }
       })
     } else {
       this.setState({

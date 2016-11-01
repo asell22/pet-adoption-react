@@ -5,9 +5,9 @@ import { zipForm, btn } from '../styles/zipForm';
 const Age = ({ color, heading, onAgeChange, onButtonClick }) => {
   return (
     <div>
-      <Header text={props.heading} color={props.color}/>
+      <Header text={heading} color={color}/>
       <div className="center" style={zipForm}>
-        <select className="form-control" onChange={props.onAgeChange}>
+        <select className="form-control" onChange={onAgeChange}>
           <option value="" style={{display:'none'}}>Select Age </option>
           <option value="baby">Baby</option>
           <option value="young">Young</option>
@@ -15,7 +15,7 @@ const Age = ({ color, heading, onAgeChange, onButtonClick }) => {
           <option value="senior">Senior</option>
         </select>
       </div>
-      <button className="btn btn-default center" style={btn} onClick={props.onButtonClick}>Select</button>
+      <button className="btn btn-default center" style={btn} onClick={onButtonClick}>Select</button>
     </div>
   )
 }
