@@ -39,8 +39,8 @@ class Gender extends Component {
         <div className="center" style={zipForm}>
           <select className="form-control" onChange={(evt) => this.handleGenderChange(evt)}>
             <option value="" style={{display:'none'}}>Select Gender</option>
-            <option value="small">Male</option>
-            <option value="medium">Female</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
           </select>
         </div>
         <button className="btn btn-default center" style={btn} onClick={() => this.handleButtonClick()}>Select</button>
