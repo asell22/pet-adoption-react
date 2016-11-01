@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
-const Age = (props) => {
+const Age = ({ color, heading, onAgeChange, onButtonClick }) => {
   return (
     <div>
       <Header text={props.heading} color={props.color}/>
