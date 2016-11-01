@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import ZipForm from './ZipForm'
+import Zip from './Zip'
 
-class ZipFormContainer extends Component {
+class ZipContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +15,7 @@ class ZipFormContainer extends Component {
       zip: evt.target.value
     })
   }
-  handleFormSubmit(evt) {
+  handleZipSubmit(evt) {
     evt.preventDefault();
     if (!isNaN(+this.state.zip) && this.state.zip.length === 5) {
       this.context.router.push({
@@ -35,19 +35,19 @@ class ZipFormContainer extends Component {
   }
   render() {
     return (
-      <ZipForm
+      <Zip
         color={this.state.color}
         subheading={this.state.subheading}
         onInputChange={(evt) => this.handleInputChange(evt)}
-        onFormSubmit={(evt) => this.handleFormSubmit(evt)}
+        onZipSubmit={(evt) => this.handleZipSubmit(evt)}
         zip={this.state.zip}
       />
     )
   }
 }
 
-ZipFormContainer.contextTypes = {
+ZipContainer.contextTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default ZipFormContainer;
+export default ZipContainer;
