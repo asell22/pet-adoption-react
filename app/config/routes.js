@@ -9,6 +9,7 @@ import BreedContainer from '../components/BreedContainer';
 import SizeContainer from '../components/SizeContainer';
 import AgeContainer from '../components/AgeContainer';
 import Gender from '../components/Gender';
+import Results from '../components/Results';
 
 const routes = (
   <Router history={hashHistory}>
@@ -21,7 +22,7 @@ const routes = (
       <Route path='size' component={SizeContainer}/>
       <Route path='age' component={AgeContainer}/>
       <Route path='gender' component={Gender}/>
-
+      <Route path='results' component={Results}/>
     </Route>
   </Router>
 )

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
@@ -12,22 +12,45 @@ class Gender extends Component {
     this.state = props.location.state;
     this.state.heading = 'Select Gender';
     this.state.color = 'black';
+    this.state.gender = '';
+  }
+  handleGenderChange(evt) {
+    this.setState({
+      gender: evt.target.value
+    })
+  }
+  handleButtonClick() {
+    this.context.router.push({
+      pathname: 'results',
+      state: {
+        animal: this.state.animal,
+        breed: this.state.breed,
+        size: this.state.size,
+        zip: this.state.zip,
+        age: this.state.age,
+        gender: this.state.gender
+      }
+    })
   }
   render() {
     return (
       <div>
         <Header text={this.state.heading} color={this.state.color}/>
         <div className="center" style={zipForm}>
-          <select className="form-control">
+          <select className="form-control" onChange={(evt) => this.handleGenderChange(evt)}>
             <option value="" style={{display:'none'}}>Select Gender</option>
             <option value="small">Male</option>
             <option value="medium">Female</option>
           </select>
         </div>
-        <button className="btn btn-default center" style={btn}>Select</button>
+        <button className="btn btn-default center" style={btn} onClick={() => this.handleButtonClick()}>Select</button>
       </div>
     )
   }
+}
+
+Gender.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default Gender;
