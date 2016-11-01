@@ -11,7 +11,9 @@ class BreedContainer extends Component {
       breed: '',
       animal: props.location.state.animal,
       zip: props.location.state.zip,
-      value: 'Select A Breed'
+      value: 'Select A Breed',
+      headerText: 'Select a breed',
+      color: 'black'
     }
   }
   handleBreedChange(evt) {
@@ -21,14 +23,21 @@ class BreedContainer extends Component {
     });
   }
   handleButtonClick() {
-    this.context.router.push({
-      pathname: 'size',
-      state: {
-        zip: this.state.zip,
-        animal: this.state.animal,
-        breed: this.state.breed
-      }
-    })
+    if (this.state.breed.length) {
+      this.context.router.push({
+        pathname: 'size',
+        state: {
+          zip: this.state.zip,
+          animal: this.state.animal,
+          breed: this.state.breed
+        }
+      })
+    } else {
+      this.setState({
+        color: 'red',
+        headerText: 'Please select a breed'
+      })
+    }
   }
   componentDidMount() {
     const url = `http://api.petfinder.com/breed.list?format=json&key=${API_KEY}&animal=${this.state.animal}`;
@@ -52,6 +61,8 @@ class BreedContainer extends Component {
         onBreedChange={(evt) => this.handleBreedChange(evt)}
         onButtonClick={() => this.handleButtonClick()}
         value={this.state.value}
+        headerText={this.state.headerText}
+        color={this.state.color}
       />
     )
   }

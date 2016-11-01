@@ -5,17 +5,16 @@ import { zipForm, btn } from '../styles/zipForm';
 
 
 
-const Breed = ({ isLoading, breeds, onBreedChange, onButtonClick, value }) => {
+const Breed = ({ isLoading, breeds, onBreedChange, onButtonClick, value, headerText, color }) => {
   return (
     isLoading === true
     ? <Header text="Loading..." />
     : <div>
-        <Header text="Select a breed"/>
+        <Header text={headerText} color={color} />
         <div className="center" style={zipForm}>
           <select id="select-breed" className="form-control" onChange={onBreedChange}>
             <option value="" style={{display:'none'}}>{value}</option>
             {breeds.map((breed) => {
-
               return <option key={v4()} value={breed.$t} >{breed.$t}</option>
             })}
           </select>
