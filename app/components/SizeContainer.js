@@ -7,6 +7,8 @@ class SizeContainer extends Component {
     const state = props.location.state;
     this.state = state;
     this.state.size = '';
+    this.state.color = 'black';
+    this.state.subheading = 'Select a size';
   }
   handleSizeChange(evt) {
     this.setState({
@@ -14,16 +16,26 @@ class SizeContainer extends Component {
     })
   }
   handleButtonClick() {
-    this.context.router.push({
-      pathname: 'age',
-      state: this.state
-    })
+    if (this.state.size.length) {
+      this.context.router.push({
+        pathname: 'age',
+        state: this.state
+      })
+    } else {
+      this.setState({
+        subheading: 'Please select a size',
+        color: 'red'
+      })
+    }
   }
   render() {
+    console.log('STATE:', this.state)
     return (
       <Size
         onSizeChange={(evt) => this.handleSizeChange(evt)}
         onButtonClick={() => this.handleButtonClick()}
+        color={this.state.color}
+        subheading={this.state.subheading}
       />
     )
   }

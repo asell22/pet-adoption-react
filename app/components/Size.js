@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
-const Size = function ({ onSizeChange, onButtonClick }) {
+const Size = function ({ onSizeChange, onButtonClick, subheading, color }) {
   return (
     <div>
-      <Header text="Select a size"/>
+      <Header text={subheading} color={color}/>
       <div className="center" style={zipForm}>
         <select className="form-control" onChange={onSizeChange}>
           <option value="" style={{display:'none'}}>Select Size </option>
