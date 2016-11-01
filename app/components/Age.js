@@ -5,7 +5,7 @@ import { zipForm, btn } from '../styles/zipForm';
 const Age = (props) => {
   return (
     <div>
-      <Header text="How old do you want your pet to be?"/>
+      <Header text={props.heading} color={props.color}/>
       <div className="center" style={zipForm}>
         <select className="form-control" onChange={props.onAgeChange}>
           <option value="" style={{display:'none'}}>Select Age </option>

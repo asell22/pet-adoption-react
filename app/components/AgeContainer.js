@@ -8,6 +8,8 @@ class AgeContainer extends Component {
     const state = this.props.location.state
     this.state = state;
     this.state.age = '';
+    this.state.heading = 'How old do you want your pet to be?',
+    this.state.color = 'black'
   }
 
   handleAgeChange(evt) {
@@ -17,17 +19,27 @@ class AgeContainer extends Component {
   }
 
   handleButtonClick() {
-    this.context.router.push({
-      pathname: 'gender',
-      state: this.state
-    })
+    if (this.state.age.length) {
+      this.context.router.push({
+        pathname: 'gender',
+        state: this.state
+      })
+    } else {
+      this.setState({
+        heading: 'Please select an age group',
+        color: 'red'
+      })
+    }
   }
 
   render() {
+    console.log('state from age container:', this.state)
     return (
       <Age
         onAgeChange={(evt) => {this.handleAgeChange(evt)}}
         onButtonClick={() => {this.handleButtonClick()}}
+        heading={this.state.heading}
+        color={this.state.color}
       />
     )
   }

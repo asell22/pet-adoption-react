@@ -19,7 +19,12 @@ class SizeContainer extends Component {
     if (this.state.size.length) {
       this.context.router.push({
         pathname: 'age',
-        state: this.state
+        state: {
+          animal: this.state.animal,
+          breed: this.state.breed,
+          size: this.state.size,
+          zip: this.state.zip
+        }
       })
     } else {
       this.setState({
