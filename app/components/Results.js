@@ -19,30 +19,26 @@ class Results extends Component {
       dataType: 'json'
     }).then((data) => {
       // console.log('RESULTS:', data.petfinder.pets.pet)
+      console.log('DATA:', data);
       this.setState({
-        pets: data.petfinder.pets.pet
+        pets: [].concat(data.petfinder.pets.pet)
       });
       console.log('PETS:', this.state.pets)
     })
   }
 
   render() {
-    if (this.state.pets.length) {
-      return (
-        <div className="row">
-          {this.state.pets.map((pet, indx) =>
-            <div className="col-sm-4" style={{textAlign: 'center', margin: '20px 0px'}} key={indx.toString()}>
-
-              <img style={{borderRadius: '5%'}} src={pet.media.photos.photo[2].$t} width="150" height="150" alt=""/>
-              <h5>Meet {pet.name.$t}</h5>
-            </div>)}
-        </div>
-      )
-    } else {
-      return (
-        <h1>Sorry no matches :(</h1>
-      )
-    }
+    return (
+      <div className="row">
+        {this.state.pets !== undefined ? this.state.pets.map((pet, indx) =>
+          <div className="col-sm-4" style={{textAlign: 'center', margin: '40px 0px'}} key={indx.toString()}>
+            {Object.keys(pet.media).length !== 0 ? <img src={pet.media.photos.photo[2].$t} width="150" height="150" alt="" style={{borderRadius: '5%', objectFit: 'cover'}}/> : <div ><span style={{border: '1px solid #000', padding: '50px 0', display: 'block', margin: '20px', background: '#ccc', borderRadius: '2%'}}>NO PHOTO</span></div>}
+            <h5>Meet {pet.name.$t}</h5>
+          </div>) :
+          <h2>Sorry no Matches</h2>
+        }
+      </div>
+    )
   }
 }
 
