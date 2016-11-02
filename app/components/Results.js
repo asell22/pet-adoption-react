@@ -5,6 +5,7 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = props.location.state;
+    this.state.pets = [];
   }
 
   componentDidMount() {
@@ -17,12 +18,20 @@ class Results extends Component {
       url : url+'&callback=?',
       dataType: 'json'
     }).then((data) => {
-      console.log('RESULTS:', data.petfinder.pets)
+      // console.log('RESULTS:', data.petfinder.pets.pet)
+      this.setState({
+        pets: data.petfinder.pets.pet
+      });
+      console.log('PETS:', this.state.pets)
     })
   }
 
   render() {
-    return <div>RESULTS</div>
+    return (
+      <ul>
+        {this.state.pets.map((pet, indx) => <li key={indx.toString()}>{pet.name.$t}</li>)}
+      </ul>
+    )
   }
 }
 
