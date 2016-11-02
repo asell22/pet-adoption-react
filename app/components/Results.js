@@ -27,16 +27,22 @@ class Results extends Component {
   }
 
   render() {
-    return (
-      <div className="row">
-        {this.state.pets.map((pet, indx) =>
-          <div className="col-sm-4" key={indx.toString()}>
-          <h5>{pet.name.$t}</h5>
-          <img style={{borderRadius: '5%'}} src={pet.media.photos.photo[2].$t} width="150" height="150" alt=""/>
+    if (this.state.pets.length) {
+      return (
+        <div className="row">
+          {this.state.pets.map((pet, indx) =>
+            <div className="col-sm-4" style={{textAlign: 'center', margin: '20px 0px'}} key={indx.toString()}>
 
-          </div>)}
-      </div>
-    )
+              <img style={{borderRadius: '5%'}} src={pet.media.photos.photo[2].$t} width="150" height="150" alt=""/>
+              <h5>Meet {pet.name.$t}</h5>
+            </div>)}
+        </div>
+      )
+    } else {
+      return (
+        <h1>Sorry no matches :(</h1>
+      )
+    }
   }
 }
 
