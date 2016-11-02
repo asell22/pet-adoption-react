@@ -28,9 +28,14 @@ class Results extends Component {
 
   render() {
     return (
-      <ul>
-        {this.state.pets.map((pet, indx) => <li key={indx.toString()}>{pet.name.$t}</li>)}
-      </ul>
+      <div className="row">
+        {this.state.pets.map((pet, indx) =>
+          <div className="col-sm-4" key={indx.toString()}>
+          <h5>{pet.name.$t}</h5>
+          <img style={{borderRadius: '5%'}} src={pet.media.photos.photo[2].$t} width="150" height="150" alt=""/>
+
+          </div>)}
+      </div>
     )
   }
 }
