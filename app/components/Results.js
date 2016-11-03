@@ -34,11 +34,15 @@ class Results extends Component {
     })
   }
 
+  handlePetClick(pet) {
+    console.log(pet);
+  }
+
   render() {
     return (
       <div className="row">
         {this.state.pets !== undefined ?
-          <PetsResult pets={this.state.pets}/> :
+          <PetsResult pets={this.state.pets} onPetClick={(pet) => this.handlePetClick(pet)}/> :
           <h2>Sorry no Matches</h2>
         }
       </div>
