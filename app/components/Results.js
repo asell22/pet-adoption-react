@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { API_KEY } from '../../keys';
 import PetsResult from './PetsResult';
 
@@ -10,9 +10,7 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    http://api.petfinder.com/pet.find?key=92c1ab693c2e94984374d634551c27ab&animal=dog&breed=Boxer&size=S&age=Young&sex=F&location=94952&description=full&format=json
     const url = `http://api.petfinder.com/pet.find?key=${API_KEY}&animal=${this.state.animal}&breed=${this.state.breed}&size=${this.state.size}&age=${this.state.age}&sex=${this.state.gender}&location=${this.state.zip}&description=full&format=json&count=300`;
-    console.log('URL', url);
 
     $.ajax({
       type : 'GET',
@@ -36,6 +34,10 @@ class Results extends Component {
 
   handlePetClick(pet) {
     console.log(pet);
+    this.context.router.push({
+      pathname: 'pet',
+      state: { pet }
+    })
   }
 
   render() {
@@ -50,5 +52,8 @@ class Results extends Component {
   }
 }
 
+Results.contextTypes = {
+  router: PropTypes.object.isRequired
+}
 
 export default Results;
