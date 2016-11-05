@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class UserPets extends Component {
   constructor() {
@@ -21,6 +21,13 @@ class UserPets extends Component {
     console.log('From componentDidMount:', this.state.savedPets);
   }
 
+  handlePetClick(pet){
+    this.context.router.push({
+      pathname: 'pet',
+      state: { pet }
+    })
+  }
+
   render() {
     console.log('From render:', this.state.savedPets);
     return (
@@ -29,7 +36,7 @@ class UserPets extends Component {
         {this.state.savedPets.map((pet, indx, arr) => {
           return (
             <div className="col-sm-3" key={arr[indx].id.$t} style={{textAlign: 'center', margin: '40px 0px'}}>
-              <div style={{cursor: 'pointer'}}>
+              <div onClick={() => this.handlePetClick(arr[indx])} style={{cursor: 'pointer'}}>
                 {Object.keys(arr[indx]).length !== 0 ?
                   <img src={arr[indx].media.photos.photo[2].$t} width="150" height="150" style={{borderRadius: '5%', objectFit: 'cover'}}/>
                   :
@@ -45,6 +52,10 @@ class UserPets extends Component {
         </div>
     )
   }
+}
+
+UserPets.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default UserPets;
