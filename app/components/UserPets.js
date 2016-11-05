@@ -10,15 +10,28 @@ class UserPets extends Component {
 
   componentDidMount() {
     for (let i = 0; i < localStorage.length; i++) {
+      var savedPets = [];
       let pet = JSON.parse(localStorage.getItem(localStorage.key(i)));
-      this.state.savedPets.push(pet);
+      savedPets.push(pet)
     }
 
-    console.log(this.state.savedPets);
+    this.setState({
+      savedPets
+    })
+    console.log('From componentDidMount:', this.state.savedPets);
   }
 
   render() {
-    return <div>List of Pets</div>
+    console.log('From render:', this.state.savedPets);
+    return (
+      <div>
+        <h4>List of Pets</h4>
+        {this.state.savedPets.map((pet, indx, arr) => {
+          return <div key={arr[indx].id.$t}>{arr[indx].name.$t}</div>
+        })}
+      </div>
+    )
+
   }
 }
 
