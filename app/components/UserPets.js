@@ -37,6 +37,7 @@ class UserPets extends Component {
         {this.state.savedPets.map((pet, indx, arr) => {
           return (
             <div className="col-sm-3" key={arr[indx].id.$t} style={{textAlign: 'center', margin: '40px 0px'}}>
+              <h4>{arr[indx].name.$t}</h4>
               <div onClick={() => this.handlePetClick(arr[indx])} style={{cursor: 'pointer'}}>
                 {Object.keys(arr[indx]).length !== 0 ?
                   <img src={arr[indx].media.photos.photo[2].$t} width="150" height="150" style={{borderRadius: '5%', objectFit: 'cover'}}/>
@@ -46,7 +47,10 @@ class UserPets extends Component {
                   </div>
                 }
               </div>
-              {arr[indx].name.$t}
+
+              <div style={{display: 'block', marginTop: '10px'}}>
+                <button className="btn btn-danger">Remove</button>
+              </div>
             </div>
           )
         })}
