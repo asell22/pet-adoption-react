@@ -11,6 +11,7 @@ import Gender from '../components/Gender';
 import Results from '../components/Results';
 import Pet from '../components/Pet';
 import UserPets from '../components/UserPets';
+import About from '../components/About'
 
 
 const routes = (
@@ -26,6 +27,7 @@ const routes = (
       <Route path='results' component={Results}/>
       <Route path='pet' component={Pet}/>
       <Route path='pets' component={UserPets}/>
+      <Route path='about' component={About}/>
     </Route>
   </Router>
 )
