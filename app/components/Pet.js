@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Pet extends Component {
   constructor(props) {
@@ -15,7 +15,10 @@ class Pet extends Component {
     console.log('ID:', id);
     console.log('petStr:', petStr);
     localStorage.setItem(id, petStr);
-    console.log('item saved')
+    console.log('item saved');
+    this.context.router.push({
+      pathname: 'pets'
+    })
   }
 
   render() {
@@ -47,6 +50,10 @@ class Pet extends Component {
         return <div>No Photo</div>
       }
   }
+}
+
+Pet.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default Pet;

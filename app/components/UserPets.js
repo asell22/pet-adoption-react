@@ -45,7 +45,7 @@ class UserPets extends Component {
     console.log('From render:', this.state.savedPets);
     return (
       <div>
-        {this.state.savedPets.length !== 0 ? <h4>These are the pets you saved to your list: </h4> : <h2 style={{fontWeight: '100', textAlign: 'center'}}>You have no saved pets. Find a pet to save to your list.</h2>}
+        {this.state.savedPets.length !== 0 ? <h4 style={{textAlign: 'center'}}>These are the pets you saved to your list: </h4> : <h2 style={{fontWeight: '100', textAlign: 'center'}}>You have no saved pets. Find a pet to save to your list.</h2>}
         {this.state.savedPets.map((pet, indx, arr) => {
           return (
             <div className="col-sm-3" key={arr[indx].id.$t} style={{textAlign: 'center', margin: '40px 0px'}}>
