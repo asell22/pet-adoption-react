@@ -29,6 +29,18 @@ class UserPets extends Component {
     })
   }
 
+  handleRemoveButtonClick(pet) {
+    let id = pet.id.$t;
+    localStorage.removeItem(id)
+    console.log('Local Storage Key:', pet.id.$t);
+    let savedPets = this.state.savedPets.filter((pet) => {
+      return  pet.id.$t !== id
+    });
+    this.setState({
+      savedPets
+    })
+  }
+
   render() {
     console.log('From render:', this.state.savedPets);
     return (
@@ -49,7 +61,7 @@ class UserPets extends Component {
               </div>
 
               <div style={{display: 'block', marginTop: '10px'}}>
-                <button className="btn btn-danger">Remove</button>
+                <button className="btn btn-danger" onClick={() => this.handleRemoveButtonClick(pet)}>Remove</button>
               </div>
             </div>
           )
