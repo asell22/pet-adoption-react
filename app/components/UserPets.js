@@ -9,8 +9,9 @@ class UserPets extends Component {
   }
 
   componentDidMount() {
+    console.log()
+    var savedPets = [];
     for (let i = 0; i < localStorage.length; i++) {
-      var savedPets = [];
       let pet = JSON.parse(localStorage.getItem(localStorage.key(i)));
       savedPets.push(pet)
     }
