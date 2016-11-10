@@ -9,7 +9,9 @@ const Nav = () => {
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav navbar-right">
+            <li><a href="/#/">Home</a></li>
             <li><a href="/#/about">About</a></li>
+            <li><a href="/#/pets">My List</a></li>
           </ul>
         </div>
       </div>
