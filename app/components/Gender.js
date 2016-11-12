@@ -2,10 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import Header from './Header';
 import { zipForm, btn } from '../styles/zipForm';
 
-// const Gender = (props) => {
-//   console.log(props);
-//   return <div>GENDER COMPONENT</div>
-// }
 class Gender extends Component {
   constructor(props) {
     super(props);
@@ -38,9 +34,11 @@ class Gender extends Component {
         <Header text={this.state.heading} color={this.state.color}/>
         <div className="center" style={zipForm}>
           <select className="form-control" onChange={(evt) => this.handleGenderChange(evt)}>
-            <option value="" style={{display:'none'}}>Select Gender</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
+            <optgroup label="Select Gender">
+              <option value="" style={{display:'none'}}>Select Gender</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </optgroup>
           </select>
         </div>
         <button className="btn btn-default center" style={btn} onClick={() => this.handleButtonClick()}>Select</button>

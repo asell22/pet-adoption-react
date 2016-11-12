@@ -8,11 +8,13 @@ const Size = function ({ onSizeChange, onButtonClick, subheading, color }) {
       <Header text={subheading} color={color}/>
       <div className="center" style={zipForm}>
         <select className="form-control" onChange={onSizeChange}>
-          <option value="" style={{display:'none'}}>Select Size </option>
-          <option value="S">Small</option>
-          <option value="M">Medium</option>
-          <option value="L">Large</option>
-          <option value="XL">Extra Large</option>
+          <optgroup label="Select Size">
+            <option value="" style={{display:'none'}}>Select Size </option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">Extra Large</option>
+          </optgroup>
         </select>
       </div>
       <button className="btn btn-default center" style={btn} onClick={onButtonClick}>Select</button>
