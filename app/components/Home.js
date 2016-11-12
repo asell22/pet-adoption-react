@@ -9,7 +9,7 @@ const Home = () => {
       <h4 style={{marginTop: '30px'}}>Click get started to find a pet.</h4>
 
       <Link to='zip'>
-        <button className="btn btn-success" style={{background: '	#7433DC', border: '5px solid 	#7433DC', marginTop: '5px'}}>Get Started</button>
+        <button className="btn btn-success" style={{background: '#7433DC', border: '5px solid 	#7433DC', marginTop: '5px'}}>Get Started</button>
       </Link>
     </div>
 
